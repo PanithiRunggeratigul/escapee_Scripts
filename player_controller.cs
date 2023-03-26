@@ -131,7 +131,7 @@ public class player_controller : MonoBehaviour
 
         if (running)
         {
-            rb.AddForce(transform.up * jumpForce + moveDirection * 50f, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce + moveDirection * 10f, ForceMode.Impulse);
         }
         else if (!running)
         {

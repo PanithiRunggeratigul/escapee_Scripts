@@ -6,21 +6,22 @@ public class Items
 {
     public enum ItemType
     {
-
+        dude,
+        white,
     }
 
     public ItemType itemType;
-    // public int amount;
+    public int amount;
 
-    // Start is called before the first frame update
-    void Start()
+    public Sprite GetSprite()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        switch (itemType)
+        {
+            default:
+            case ItemType.dude:
+                return itemAssets.Instance.dudeSprite;
+            case ItemType.white:
+                return itemAssets.Instance.whiteSprite;
+        }
     }
 }

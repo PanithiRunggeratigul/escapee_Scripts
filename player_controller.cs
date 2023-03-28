@@ -56,7 +56,9 @@ public class player_controller : MonoBehaviour
         running = false;
         moving = false;
         currentStamina = stamina;
+
         inventory = new Inventory();
+        uiinventory.setInventory(inventory);
     }
 
     private void MyInput()

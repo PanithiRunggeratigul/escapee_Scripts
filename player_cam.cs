@@ -15,6 +15,10 @@ public class player_cam : MonoBehaviour
     float yRotation;
     float multiplier = 0.01f;
 
+    [Header("Interactive UI")]
+    public Transform interactive_ui;
+    public float offset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +26,22 @@ public class player_cam : MonoBehaviour
         Cursor.visible = false;
     }
 
+    void checkInteractUI()
+    {
+        if (Vector3.Distance(interactive_ui.position, transform.position) < offset)
+        {
+            interactive_ui.gameObject.SetActive(true);
+        }
+        else
+        {
+            interactive_ui.gameObject.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        checkInteractUI();
         float mouseX = Input.GetAxisRaw("Mouse X") * multiplier * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * multiplier * sensY;
 
